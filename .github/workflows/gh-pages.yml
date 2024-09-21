@@ -7,34 +7,26 @@ on:
       - master  # 监听的分支，如有需要可修改
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  build-deploy:  # 定义一个名为 build-deploy 的工作
+    runs-on: ubuntu-latest  # 指定工作运行的环境，这里使用最新的 Ubuntu 版本
     steps:
-      - name: 检出代码
+      - name: Checkout 
         uses: actions/checkout@v3
         with:
-          submodules: true  # 递归检出子模块（主题）
+          submodules: recursive  # 递归地获取子模块
           fetch-depth: 0         # 获取完整的提交历史
 
-      - name: 设置 Node.js 环境
-        uses: actions/setup-node@v3
+      - name: Setup Hugo  # 设置 Hugo 环境
+        uses: peaceiris/actions-hugo@v2  # 使用 peaceiris/actions-hugo@v2 动作
         with:
-          node-version: '16'  # Hugo 主题可能需要 Node.js
+          hugo-version: 'latest'  # 安装最新版本的 Hugo
 
-      - name: 安装 Dart Sass
-        run: sudo apt-get install dart-sass
+      - name: Build  # 构建 Hugo 静态网站
+        run: hugo --minify  # 运行 Hugo 构建命令，并使用 --minify 选项来压缩生成的文件
 
-      - name: 安装 Hugo
-        uses: peaceiris/actions-hugo@v2
+      - name: Deploy  # 部署生成的静态网站到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # 使用 peaceiris/actions-gh-pages@v3 动作
         with:
-          hugo-version: 'latest'
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 的内置密钥来进行身份验证
+          publish_dir: ./public  # 指定要发布的目录，这里是 Hugo 默认的输出目录 ./public
 
-      - name: 构建站点 # 构建 Hugo 静态网站
-        run: hugo --minify # 运行 Hugo 构建命令，并使用 --minify 选项来压缩生成的文件
-
-      - name: 部署到 GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
