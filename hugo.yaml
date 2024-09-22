@@ -13,55 +13,6 @@ DefaultContentLanguageInSubdir : false
 # This will make .Summary and .WordCount behave correctly for CJK languages.
 hasCJKLanguage: true
 
-languages:
-    zh-cn:
-        languageName: 中文
-        title: 芥子观须弥
-        weight: 1
-        params:
-            description:  芥子观须弥的博客
-        # menu:
-        #     main:
-        #         - identifier: "home"
-        #             name: "主页"
-        #             weight: -90
-        #             params:
-        #                 icon: home
-                # - identifier: "home"
-                # name: "首页"
-                # url: "/"
-                # weight: 1
-                # - identifier: "about"
-                # name: "关于"
-                # url: "/about/"
-                # weight: 2
-                # - identifier: "posts"
-                # name: "文章"
-                # url: "/posts/"
-                # weight: 3
-
-    en:
-        languageName: English
-        title: 芥子观须弥
-        weight: 2
-        params:
-            description: 芥子观须弥's blog
-        # menu:
-        #     main:
-                # - identifier: "home"
-                # name: "Home"
-                # url: "/"
-                # weight: 1
-                # - identifier: "about"
-                # name: "About"
-                # url: "/about/"
-                # weight: 2
-                # - identifier: "posts"
-                # name: "Posts"
-                # url: "/posts/"
-                # weight: 3
-
-
 services:
     # Change it to your Disqus shortname before using
     disqus:
@@ -99,7 +50,7 @@ params:
             enabled: true
             local: true
             src: img/avatar.jpeg
-        compact: true
+
     # 文章页面的配置
     article:
         math: false # 通过KaTeX启用数学支持
@@ -118,57 +69,6 @@ params:
             admin:
             adminLabel:
 
-        utterances:
-            repo:
-            issueTerm: pathname
-            label:
-
-        beaudar:
-            repo:
-            issueTerm: pathname
-            label:
-            theme:
-
-        remark42:
-            host:
-            site:
-            locale:
-
-        vssue:
-            platform:
-            owner:
-            repo:
-            clientId:
-            clientSecret:
-            autoCreateIssue: false
-
-        # Waline client configuration see: https://waline.js.org/en/reference/component.html
-        waline:
-            serverURL:
-            lang:
-            pageview:
-            emoji:
-                - https://unpkg.com/@waline/emojis@1.0.1/weibo
-            requiredMeta:
-                - name
-                - email
-                - url
-            locale:
-                admin: Admin
-                placeholder:
-
-        twikoo:
-            envId:
-            region:
-            path:
-            lang:
-
-        # See https://cactus.chat/docs/reference/web-client/#configuration for description of the various options
-        cactus:
-            defaultHomeserverUrl: "https://matrix.cactus.chat:8448"
-            serverName: "cactus.chat"
-            siteName: "" # You must insert a unique identifier here matching the one you registered (See https://cactus.chat/docs/getting-started/quick-start/#register-your-site)
-
         giscus:
             repo: "jieyuhuayang/jieyuhuayang.github.io"
             repoID: MDEwOlJlcG9zaXRvcnkxNDg3MjYzNzQ=
@@ -180,17 +80,6 @@ params:
             reactionsEnabled: 1
             emitMetadata: 0
 
-        gitalk:
-            owner:
-            admin:
-            repo:
-            clientID:
-            clientSecret:
-            proxy:
-
-        cusdis:
-            host:
-            id:
     # widgets位于博客的右侧边栏。它们用于显示一些信息，例如类别、标签等。
     widgets:
         homepage:
@@ -210,7 +99,7 @@ params:
     opengraph:
         twitter:
             # Your Twitter username
-            site:
+            site: A_Line_Walker
 
             # Available values: summary, summary_large_image
             card: summary_large_image
