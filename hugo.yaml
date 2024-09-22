@@ -191,6 +191,7 @@ params:
         cusdis:
             host:
             id:
+    # widgets位于博客的右侧边栏。它们用于显示一些信息，例如类别、标签等。
     widgets:
         homepage:
             - type: search
