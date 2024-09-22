@@ -195,7 +195,7 @@ params:
     widgets:
         homepage:
             - type: search
-            - type: archives
+            - type: archives # 显示年份列表以及每年发布的帖子数量。
               params:
                   limit: 5
             - type: categories
